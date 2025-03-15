@@ -1,77 +1,4 @@
 USE route_db;
-CREATE TABLE categories ( 
-	id	INTEGER NOT NULL,
-	name	VARCHAR(255),
-	PRIMARY KEY(id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT INTO categories VALUES(1,'นครพนม');
-INSERT INTO categories VALUES(2,'ศรีสงคราม');
-INSERT INTO categories VALUES(3,'ปลาปาก');
-INSERT INTO categories VALUES(4,'ท่าอุเทน');
-INSERT INTO categories VALUES(5,'นาแก');
-CREATE TABLE notify (  
-	lamp_type	VARCHAR(255),
-	dir	VARCHAR(255),
-	dir_num	VARCHAR(255),
-	routes	VARCHAR(255),
-	control	VARCHAR(255),
-	km	VARCHAR(255),
-	lat DECIMAL (12,9),
-	longitude DECIMAL (12,9),
-	fovy	FLOAT,
-	ranges	FLOAT,
-	name_id	VARCHAR(255),
-	status	INTEGER,
-	lampType_edit	VARCHAR(255),
-	controller_edit	VARCHAR(255),
-	constructionDate	VARCHAR(255),
-	contractNumber	VARCHAR(255),
-	notes	VARCHAR(255),
-	repairMethod	VARCHAR(255),
-	complaintChannel	VARCHAR(255),
-	complaintCode	VARCHAR(255),
-	complaintTopic	VARCHAR(255),
-	complaintReason	VARCHAR(255),
-	repairItems	VARCHAR(255),
-	controlType	VARCHAR(255),
-	lastRepairDate	VARCHAR(255),
-	report_time	VARCHAR(255)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT INTO notify VALUES('SG','LT','63','2028',102,'39+900','17.5473944164555','104.609990306806','35','209.163139623924','LT63-SG-2028-0102-39+900',0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No complaint',NULL,NULL,NULL,'25-01-2025 01:42');
-INSERT INTO notify VALUES('SG','LT','63','2028',102,'39+900','17.5473944164555','104.609990306806','35','209.163139623924','LT63-SG-2028-0102-39+900',0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No complaint',NULL,NULL,NULL,'30-01-2025 14:34');
-INSERT INTO notify VALUES('SG','LT','67','2028',102,'40+080','17.548560168044','104.610657753127','35','500.180520922804','LT67-SG-2028-0102-40+080',0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No complaint',NULL,NULL,NULL,'30-01-2025 15:18');
-INSERT INTO notify VALUES('SG','LT','69','2028',102,'40+170','17.5489844480837','104.610793140542','35','160.469726736974','LT69-SG-2028-0102-40+170',0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No complaint',NULL,NULL,NULL,'30-01-2025 15:19');
-CREATE TABLE Repair_completed (
-	cat_id	INTEGER,
-	lamptype	VARCHAR(255),
-	dir	VARCHAR(255),
-	dir_num	INTEGER,
-	routes	VARCHAR(255),
-	control	VARCHAR(255),
-	km	VARCHAR(255),
-	lat	DECIMAL(12,9),
-	longitude	DECIMAL(12,9),
-	fovy	REAL,
-	ranges	REAL,
-	name_id	VARCHAR(255),
-	status	VARCHAR(255),
-	lampType_edit	VARCHAR(255),
-	controller_edit	VARCHAR(255),
-	constructionDate	VARCHAR(255),
-	contractNumber	VARCHAR(255),
-	notes	VARCHAR(255),
-	repairMethod	VARCHAR(255),
-	complaintChannel	VARCHAR(255),
-	complaintCode	VARCHAR(255),
-	complaintTopic	VARCHAR(255),
-	complaintReason	VARCHAR(255),
-	repairItems	VARCHAR(255),
-	controlType	VARCHAR(255),
-	lastRepairDate	VARCHAR(255),
-	report_time	VARCHAR(255)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
-INSERT INTO Repair_completed VALUES(4,'SG','LT',63,'2028','102','39+900',17.5473944164555,104.609990306806,35.0,209.163139623924,'LT63-SG-2028-0102-39+900','1',NULL,NULL,NULL,NULL,'','',NULL,NULL,NULL,NULL,'{bulb250W:true,ignitor:true}',NULL,'25-01-2025 01:42',NULL);
-INSERT INTO Repair_completed VALUES(4,'SG','LT',69,'2028','102','40+170',17.5489844480837,104.610793140542,35.0,160.469726736974,'LT69-SG-2028-0102-40+170','1',NULL,NULL,NULL,NULL,'','',NULL,NULL,NULL,NULL,'{fuseLink16A:true}',NULL,'30-01-2025 15:20',NULL);
 CREATE TABLE routes (
 	cat_id	INTEGER,
 	lamp_type	VARCHAR(255),
@@ -80,8 +7,8 @@ CREATE TABLE routes (
 	routes	VARCHAR(255),
 	control	VARCHAR(255),
 	km	VARCHAR(255),
-	lat	DECIMAL(12,9),
-	longitude	DECIMAL(12,9),
+	lat	FLOAT,
+	longitude	FLOAT,
 	fovy	FLOAT,
 	ranges	FLOAT,
 	name_id	VARCHAR(255),
